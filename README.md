@@ -1,29 +1,52 @@
-# AI Communication Evaluator 🎤
+AI Communication Evaluator 🎤
 
-## 🚀 Overview
-This tool was built for the Nirmaan AI Internship Case Study. It evaluates student self-introductions using a multi-modal approach combining **Rule-Based Logic**, **NLP (Semantic Analysis)**, and **Linguistics**.
+🚀 Overview
 
-**Live Demo:** [LINK TO YOUR HUGGING FACE SPACE HERE]
+This tool was built for the Nirmaan AI Internship Case Study. It acts like an automated teacher that evaluates student self-introductions. Instead of just counting words, it uses AI to understand the quality and meaning of the speech.
 
-## 🧠 Solution Approach
-The solution moves beyond simple keyword matching to understand the *intent* of the speaker.
+Live Demo: [[Try it here]](https://huggingface.co/spaces/deepshikhar23/nirmaan-ai-evaluator)
 
-1.  **Content Analysis (Hybrid Approach):**
-    * *Rule-Based:* Checks for mandatory structural elements (Salutation, Name).
-    * *Semantic NLP:* Uses `sentence-transformers` (BERT) to detect topics like "Ambition" or "Hobbies" even if specific keywords are missing (e.g., "I want to be a pilot" is recognized as an Ambition).
-2.  **Linguistic Quality:**
-    * Uses `language-tool-python` for granular grammar checking.
-    * Calculates Vocabulary Richness (TTR).
-3.  **Speech Metrics:**
-    * Estimates WPM (Words Per Minute) and analyzes filler word usage for clarity.
+🧠 How It Works
 
-## 🛠️ Tech Stack
-* **Frontend/Backend:** Streamlit (Python)
-* **NLP Models:** `all-MiniLM-L6-v2` (Sentence Transformers), VADER Sentiment
-* **Infrastructure:** Deployed on Hugging Face Spaces (running OpenJDK 11)
+Most simple grading tools fail because they only look for specific keywords. This solution is different because it understands intent.
 
-## 📦 How to Run Locally
-1. Clone the repository.
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
+Content Analysis (Hybrid Approach):
+
+The Rules: It checks for basics, like if the student said "Hello" (Salutation).
+
+The AI Brain: It uses a smart model (BERT) to understand topics. For example, if a student says "I want to be a pilot," the AI knows this counts as an Ambition, even if the student didn't use the exact word "Goal."
+
+Language Quality:
+
+It acts as a grammar checker to find spelling and sentence errors.
+
+It measures how rich the student's vocabulary is.
+
+Speech Metrics:
+
+It calculates how fast the student speaks (Words Per Minute).
+
+It detects hesitancy by counting filler words like "um" and "uh."
+
+🛠️ Tech Stack
+
+Frontend/Backend: Streamlit (Python)
+
+AI Models: sentence-transformers (for understanding meaning), VADER (for checking tone)
+
+Hosting: Deployed on Hugging Face Spaces
+
+📦 How to Run Locally
+
+If you want to run this on your own computer, follow these steps:
+
+Clone this repository.
+
+Install the required tools:
+
+pip install -r requirements.txt
+
+
+Launch the application:
+
+streamlit run app.py
